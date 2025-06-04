@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- dikasih static tiap href /static/.. -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+
+    <title>Smart Room Monitoring - Project IoT</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="/static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!--  CSS Files -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel="stylesheet" href="/static/assets/css/templatemo-chain-app-dev.css">
+    <link rel="stylesheet" href="/static/assets/css/animated.css">
+    <link rel="stylesheet" href="/static/assets/css/owl.css">
+
+  </head>
+
+<body>
+
+  <!-- ***** Preloader Start ***** -->
+  <div id="js-preloader" class="js-preloader">
+    <div class="preloader-inner">
+      <span class="dot"></span>
+      <div class="dots">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </div>
+  <!-- ***** Preloader End ***** -->
+
+  <!-- ***** Header Area Start ***** -->
+  <header class="header-area header-sticky wow slideInDown" data-wow-duration="0.75s" data-wow-delay="0s">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <nav class="main-nav">
+            <!-- ***** Logo Start ***** -->
+            <a href="index.html" class="logo">
+              <!-- <img src="static/assets/images/logo.png" alt="Chain App Dev"> -->
+            </a>
+            <!-- ***** Logo End ***** -->
+            <!-- ***** Menu Start ***** -->
+            <ul class="nav">
+              <li class="scroll-to-section"><a href="#top" class="active">Home</a></li>
+              <li class="scroll-to-section"><a href="#kontrolPintu" class="">RFID Pintu</a></li>
+              <li class="scroll-to-section"><a href="#lampu">LED ON/OFF</a></li>
+              <li class="scroll-to-section"><a href="#temperature">Temprature</a></li>
+              <li class="scroll-to-section"><a href="#kelompok">Team</a></li>
+              <!-- <li><div class="gradient-button"><a id="modal_trigger" href="#top"><i class="fa fa-sig"></i> Home</a></div></li>  -->
+            </ul>        
+            <a class='menu-trigger'>
+                <span>Menu</span>
+            </a>
+            <!-- ***** Menu End ***** -->
+          </nav>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ***** ini kode buat login ***** -->
+  <div id="modal" class="popupContainer" style="display:none;">
+    <!-- <div class="popupHeader">
+        <span class="header_title">Login</span>
+        <span class="modal_close"><i class="fa fa-times"></i></span>
+    </div> -->
+
+    <!-- <section class="popupBody">
+        Social Login
+        <div class="social_login">
+            <div class="">
+                <a href="#" class="social_box fb">
+                    <span class="icon"><i class="fab fa-facebook"></i></span>
+                    <span class="icon_title">Connect with Facebook</span>
+
+                </a>
+
+                <a href="#" class="social_box google">
+                    <span class="icon"><i class="fab fa-google-plus"></i></span>
+                    <span class="icon_title">Connect with Google</span>
+                </a>
+            </div>
+
+            <div class="centeredText">
+                <span>Or use your Email address</span>
+            </div>
+
+            <div class="action_btns">
+                <div class="one_half"><a href="#" id="login_form" class="btn">Login</a></div>
+                <div class="one_half last"><a href="#" id="register_form" class="btn">Sign up</a></div>
+            </div>
+        </div>
+
+        Username & Password Login form
+        <div class="user_login">
+            <form>
+                <label>Email / Username</label>
+                <input type="text" />
+                <br />
+
+                <label>Password</label>
+                <input type="password" />
+                <br />
+
+                <div class="checkbox">
+                    <input id="remember" type="checkbox" />
+                    <label for="remember">Remember me on this computer</label>
+                </div>
+
+                <div class="action_btns">
+                    <div class="one_half"><a href="#" class="btn back_btn"><i class="fa fa-angle-double-left"></i> Back</a></div>
+                    <div class="one_half last"><a href="#" class="btn btn_red">Login</a></div>
+                </div>
+            </form>
+
+            <a href="#" class="forgot_password">Forgot password?</a>
+        </div>
+
+        Register Form
+        <div class="user_register">
+            <form>
+                <label>Full Name</label>
+                <input type="text" />
+                <br />
+
+                <label>Email Address</label>
+                <input type="email" />
+                <br />
+
+                <label>Password</label>
+                <input type="password" />
+                <br />
+
+                <div class="checkbox">
+                    <input id="send_updates" type="checkbox" />
+                    <label for="send_updates">Send me occasional email updates</label>
+                </div>
+
+                <div class="action_btns">
+                    <div class="one_half"><a href="#" class="btn back_btn"><i class="fa fa-angle-double-left"></i> Back</a></div>
+                    <div class="one_half last"><a href="#" class="btn btn_red">Register</a></div>
+                </div>
+            </form>
+        </div>
+    </section> -->
+</div>
+
+  <div class="main-banner wow fadeIn" id="top" data-wow-duration="1s" data-wow-delay="0.5s">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="row">
+            <div class="col-lg-6 align-self-center">
+              <div class="left-content show-up header-text wow fadeInLeft" data-wow-duration="1s" data-wow-delay="1s">
+                <div class="row">
+                  <div class="col-lg-12">
+                    <h2>OUR Room (Otomatisasi Unit Remote Room)</h2>
+                    <p>Smart Room berbasis IoT dengan kontrol dan monitoring real-time melalui Website. Nikmati kemudahan mengelola ruangan Anda di mana saja, kapan saja.</p>
+                  </div>
+                  <div class="col-lg-12">
+                    <div class="white-button first-button scroll-to-section">
+                     
+                    </div>
+                    <div class="white-button scroll-to-section">
+                      
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="righ-image wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.5s">
+                <!-- ini gambar buat di index atas -->
+                <img src="/static/assets/images/smartnn.png" alt="">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="kontrolPintu" class="services section">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-10 offset-lg-1">
+          <div class="section-heading  wow fadeInDown" data-wow-duration="1s" data-wow-delay="0.5s">
+            <h4>RFID<em> Smart &amp; Door</em> System</h4>
+            <img src="/static/assets/images/heading-line-dec.png" alt="">
+            <p rel="nofollow" href="https://www.toocss.com/" target="_blank">Sistem pintu pintar berbasis RFID yang memberikan akses cepat dan aman hanya kepada pengguna terdaftar. 
+              Dilengkapi dengan fitur monitoring real-time dan pencatatan riwayat akses, sistem ini memungkinkan Anda memantau siapa saja yang masuk dan kapan akses dilakukan 
+             — semua dapat diakses secara otomatis melalui platform digital.</p>
+            <img src="/static/assets/images/heading-line-dec.png" alt="">
+            <img src="/static/assets/images/heading-line-dec.png" alt="">
+            
+            <div class="table-card">
+              <div class="table-header">
+                <h5 class="table-title">Tabel History Akses</h5>
+                <button onclick="hapusHistory()" class="delete-button">Hapus History</button>
+              </div>
+              <div class="table-scroll-wrapper">
+              <table class="card-table" style=" overflow-y: auto; margin: 0 auto; border-collapse: collapse;">
+                <thead class="text-white" style="background-color: #4a7ae2;">
+                  <tr style="text-align: center;">
+                      <th style ="border-radius:12px 0px 0px 0px" width ="120" height="40">No</th>
+                      <th width ="250" >Tanggal dan Waktu</th>
+                      <th width = "200">ID Kartu</th>
+                      <th style ="border-radius:0px 12px 0px 0px" width = "260">Nama Kepemilikan</th>
+                  </tr>
+                </thead>
+                <tbody height="40" id="historyTableBody">
+                  {% for log in logs %}
+                    {% if loop.index % 2 == 0 %}
+                      <tr style="background-color: #90aff2;">
+                    {% else %}
+                      <tr>
+                    {% endif %}
+                    {% if loop.last %}
+                      <td style ="border-radius:0px 0px 0px 12px">{{ loop.index }}</td>
+                      <td>{{ log.timestamp }}</td>
+                      <td>{{ log.card_id }}</td>
+                      <td style ="border-radius:0px 0px 12px 0px">{{ log.userName }}</td>
+                    {% else %}
+                      <td>{{ loop.index }}</td>
+                      <td>{{ log.timestamp }}</td>
+                      <td>{{ log.card_id }}</td>
+                      <td>{{ log.userName }}</td>
+                    {% endif %}
+                      </tr>
+                  {% endfor %}
+                  <!-- <tr>
+                    <td>01</td>
+                    <td>08:00</td>
+                    <td>123456</td>
+                    <td>Andi Pratama</td>
+                  </tr>
+                  <tr style="background-color: #90aff2;">
+                    <td>02</td>
+                    <td>09:30</td>
+                    <td>789012</td>
+                    <td>Siti Rahma</td>
+                  </tr>
+                   <tr>
+                    <td>01</td>
+                    <td>08:00</td>
+                    <td>123456</td>
+                    <td>Andi Pratama</td>
+                  </tr>
+                  <tr style="background-color: #90aff2;">
+                    <td>02</td>
+                    <td>09:30</td>
+                    <td>789012</td>
+                    <td>Siti Rahma</td>
+                  </tr>
+                   <tr>
+                    <td>01</td>
+                    <td>08:00</td>
+                    <td>123456</td>
+                    <td>Andi Pratama</td>
+                  </tr> -->
+                  <!-- yang ini jangan dihapus ya bang buat radius bagian bawah biar rounded -->
+                  <!-- <tr style="background-color: #90aff2;">
+                    <td style ="border-radius:0px 0px 0px 12px">02</td>
+                    <td>09:30</td>
+                    <td>789012</td>
+                    <td style ="border-radius:0px 0px 12px 0px">Siti Rahma</td>
+                  </tr> -->
+                </tbody>
+              </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-3">
+          <!-- <div class="service-item first-service">
+            <div class="icon"></div>
+            <h4>App Maintenance</h4>
+            <p>You are not allowed to redistribute this template ZIP file on any other website.</p>
+            <div class="text-button">
+              <a>Read More <i class="fa fa-arrow-right"></i></a>
+            </div>
+          </div> -->
+        </div>
+        <div class="col-lg-3">
+          <!-- <div class="service-item second-service">
+            <div class="icon"></div>
+            <h4>Rocket Speed of App</h4>
+            <p>You are allowed to use the Chain App Dev HTML template. Feel free to modify or edit this layout.</p>
+            <div class="text-button">
+              <a>Read More <i class="fa fa-arrow-right"></i></a>
+            </div>
+          </div> -->
+        </div>
+        <div class="col-lg-3">
+          <!-- <div class="service-item third-service">
+            <div class="icon"></div>
+            <h4>Multi Workflow Idea</h4>
+            <p>If this template is beneficial for your work, please support us <a rel="nofollow" href="https://paypal.me/templatemo" target="_blank">a little via PayPal</a>. Thank you.</p>
+            <div class="text-button">
+              <a>Read More <i class="fa fa-arrow-right"></i></a>
+            </div>
+          </div> -->
+        </div>
+        <div class="col-lg-3">
+          <!-- <div class="service-item fourth-service">
+            <div class="icon"></div>
+            <h4>24/7 Help &amp; Support</h4>
+            <p>Lorem ipsum dolor consectetur adipiscing elit sedder williamsburg photo booth quinoa and fashion axe.</p>
+            <div class="text-button">
+              <a>Read More <i class="fa fa-arrow-right"></i></a>
+            </div>
+          </div> -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="lampu" class="lampu-tables">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 offset-lg-2">
+          <div class="section-heading">
+            <h4>Monitoring dan Kontrol <em>Lampu</em> LED</h4>
+            <img src="/static/assets/images/heading-line-dec.png" alt="">
+            <p style="margin-bottom: 20px;">Sistem ini memungkinkan Anda memantau status lampu LED secara real-time dan mengontrolnya langsung dari platform website ini.</p>
+            <!-- disini button lampu -->
+             <div class="row">
+              <!-- Card Tombol Aktifkan -->
+              <div class="col-lg-4">
+                <div class="lamp-card">
+                  <h5>Aktifkan Lampu</h5>
+                  <button class="lamp-btn on-btn" onclick="turnOnLamp()">ON</button>
+                </div>
+              </div>
+              <!-- Card Tombol Nonaktifkan -->
+              <div class="col-lg-4">
+                <div class="lamp-card">
+                  <h5>Nonaktifkan Lampu</h5>
+                  <button class="lamp-btn off-btn" onclick="turnOffLamp()">OFF</button>
+                </div>
+              </div>
+              <!-- Card Status Lampu -->
+              <div class="col-lg-4">
+                <div class="lamp-card">
+                  <h5>Status Lampu</h5>
+                  <p id="lamp-status" class="lamp-status">OFF</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="temperature" class="pricing-tables">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 offset-lg-2">
+          <div class="section-heading">
+            <h4>Monitoring <em>Temperature</em> Suhu Ruangan</h4>
+            <img src="/static/assets/images/heading-line-dec.png" alt="">
+            <p>Sistem ini menampilkan suhu ruangan secara real-time dan membantu menjaga suhu ruangan dengan pemantauan yang akurat dan otomatis.</p>
+          </div>
+          <div class="monitoring-container service-item">
+            <!-- Card Suhu -->
+            <div class="monitoring-card suhu-card">
+              <h5 class="card-title">Status Suhu</h5>
+              <div class="card-value suhu-value" id="suhu-sekarang">27°C</div>
+              <p class="card-description">Suhu Ruangan Saat Ini</p>
+            </div>
+
+            <!-- Card Kipas -->
+            <div class="monitoring-card kipas-card">
+              <h5 class="card-title">Status Kipas</h5>
+              <div class="card-value kipas-value on" id="status-kipas">ON</div>
+              <p class="card-description">Kondisi Kipas Pendingin</p>
+            </div>
+          </div>
+          <div class="grafik-card">
+            <h5 class="card-title">Grafik Suhu Ruangan</h5>
+            <canvas id="suhuChart" width="100%" height="300"></canvas>
+          </div>
+        </div>
+      </div> 
+    </div>
+  </div> 
+
+  <footer id="kelompok">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 offset-lg-2">
+          <div class="section-heading">
+            <h4>-- Meet Our Team --</h4>
+          </div>
+        </div>
+        <div class="row justify-content-center team-cards">
+          <!-- Card Anggota 1 -->
+          <div class="col-md-6 col-lg-3 mb-4">
+            <div class="team-card">
+              <img src="/static/assets/images/nazril.jpg" alt="Foto Anggota 1" class="team-photo">
+              <h5>Nazril Suandana Putu Wangfud</h5>
+              <p>Kelas: RI4A2</p>
+              <p>Peran: Frontend Developer</p>
+            </div>
+          </div>
+
+          <!-- Card Anggota 2 -->
+          <div class="col-md-6 col-lg-3 mb-4">
+            <div class="team-card">
+              <img src="/static/assets/images/rezqi.jpeg" alt="Foto Anggota 2" class="team-photo">
+              <h5>Satria Rezqi Maulana</h5>
+              <p>Kelas: RI4A2</p>
+              <p>Peran: Backend Developer</p>
+            </div>
+          </div>
+
+          <!-- Card Anggota 3 -->
+          <div class="col-md-6 col-lg-3 mb-4">
+            <div class="team-card">
+              <img src="/static/assets/images/isa.jpg" alt="Foto Anggota 3" class="team-photo">
+              <h5>Isa Maliki</h5>
+              <p>Kelas: RI4A2</p>
+              <p>Peran: Hardware & IoT</p>
+            </div>
+          </div>
+
+          <!-- Card Anggota 4 -->
+          <div class="col-md-6 col-lg-3 mb-4">
+            <div class="team-card">
+              <img src="/static/assets/images/fauzan.jpg" alt="Foto Anggota 4" class="team-photo">
+              <h5>Muhammad Fauzan</h5>
+              <p>Kelas: RI4A2</p>
+              <p>Peran: UI/UX Designer</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6 offset-lg-3">
+          <form id="search" action="#" method="GET">
+            <div class="row">
+              <div class="col-lg-6 col-sm-6">
+              </div>
+              <div class="col-lg-6 col-sm-6">
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+        <div class="col-lg-12">
+          <div class="copyright-text">
+            <p>Copyright © 2025 OUR Room(Otomatisasi Unit Remote Room). All Rights Reserved. 
+          <br>Design: <a href="https:instagram.com/azielnazriel_" target="_blank" title="css templates">azielnazriel_</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="/static/vendor/jquery/jquery.min.js"></script>
+  <script src="/static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="/static/assets/js/owl-carousel.js"></script>
+  <script src="/static/assets/js/animation.js"></script>
+  <script src="/static/assets/js/imagesloaded.js"></script>
+  <script src="/static/assets/js/popup.js"></script>
+  <script src="/static/assets/js/custom.js"></script>
+  <!-- script buat grafik -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="/static/assets/js/chart-suhu.js"></script>
+  <script src="/static/assets/js/lamp-control.js"></script>
+  <script src="/static/assets/js/hapusHistory.js"></script>
+</body>
+</html>
